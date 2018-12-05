@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Dota 2 match Visualiser';
+  title = 'Dota 2 Web Application';
 }
