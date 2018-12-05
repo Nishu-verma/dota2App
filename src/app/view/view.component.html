@@ -5,21 +5,40 @@
   </label>
 </div>
 <div *ngIf = "result">
-<p></p><label> Patch: {{result.patch}} </label>
-<p></p><label> Dire Barracks Status: {{result.barracks_status_dire}} </label>
-<p></p><label> Radiant Barracks Status: {{result.barracks_status_radiant}} </label>
-<p></p><label> Game Duration: {{result.duration}}</label>
+    <h2>Match {{result.match_id}} details: </h2>
+    <h3>Radiant Victory = {{result.radiant_win|uppercase}} </h3>
+    
+    <ul>
+      <li>Patch: {{result.patch}}</li>
+      <li>Dire Barracks Status: {{result.barracks_status_dire}}</li>
+      <li>Radiant Barracks Status: {{result.barracks_status_radiant}}</li>
+      <li>Game Duration: {{result.duration}}</li>
+    </ul>
+    
 
-<div class ="xp"><title>Team EXP Difference </title></div>
-<p></p>Experience:
-<div *ngFor="let xp of result.radiant_xp_adv">{{xp}}
+<div>
+  <h3>Team EXP Difference </h3>
 </div>
-<div class ="gold"><title>Team Gold Difference </title></div>
-<p></p>Gold:
-<div *ngFor="let gold of result.radiant_gold_adv"><label>{{gold}}</label>
+<ul class = "exp">
+<div *ngFor="let xp of result.radiant_xp_adv">
+  <li>{{xp}}</li>
 </div>
+</ul>
 
-<p></p>Player Account ID:
-<div *ngFor="let iterator of result.players">
+<div>
+  <h3>Team Gold Difference </h3>
+</div>
+<ul class = "gold">
+<div *ngFor="let gold of result.radiant_gold_adv">
+  <li>{{gold}}</li>
+</div>
+</ul>
+
+<h3>Player Account ID:</h3>
+<ul class ="links">
+<div *ngFor="let iterator of result.players" routerLink="/player-details/{{iterator.account_id}}">
+<li>
   {{iterator.account_id}}
+</li>
 </div>
+</ul>

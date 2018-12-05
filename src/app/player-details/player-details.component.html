@@ -7,6 +7,7 @@
 
 <div *ngIf = "playerResult">
   <h2> {{playerResult.profile.personaname}}'s Details</h2>
+  <h3> API ID: {{playerResult.profile.account_id}} </h3>
   <img src = "{{playerResult.profile.avatarfull}}">
   <h3> Player Details: </h3>
   <div *ngIf = "playerResult.solo_competitive_rank">
@@ -17,7 +18,6 @@
   </div>
 
   <p>Estimated MMR: {{playerResult.mmr_estimate.estimate}} </p>
-  <p>Account link (API): {{playerResult.profile.account_id}} </p>
   <p>Region: {{playerResult.profile.loccountrycode}} </p>
   <p>Steam account: {{playerResult.profile.profileurl}}
     <a href="{{playerResult.profile.profileurl}}"></a> 
@@ -30,14 +30,16 @@
 
 <div *ngIf = "playerMatches">
   <h3> Player Recent Matches </h3>
-  <div *ngFor="let matches of playerMatches">
-    <label>Match:</label> 
-    {{matches.match_id}} 
+  <ul class=links>
+  <div *ngFor="let matches of playerMatches"  routerLink="/match-details/{{matches.match_id}}">
+    <li> {{matches.match_id}} 
     K/D/A: {{matches.kills}}/{{matches.deaths}}/{{matches.assists}} 
     GPM:{{matches.gold_per_min}}
     XPM:{{matches.xp_per_min}} 
     Hero Damage: {{matches.hero_damage}} 
     Hero Healing: {{matches.hero_healing}} 
     Tower Damage: {{matches.tower_damage}}
+  </li>
   </div>
+</ul>
 </div>

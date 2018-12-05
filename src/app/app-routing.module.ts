@@ -5,7 +5,9 @@ import { ViewComponent } from './view/view.component';
 
 
 const routes: Routes = [
+  { path: 'player-details/:id', component: PlayerDetailsComponent},
   { path: 'player-details', component: PlayerDetailsComponent},
+  { path: 'match-details/:id', component: ViewComponent },
   { path: 'match-details', component: ViewComponent },
 ];
  
