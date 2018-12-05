@@ -4,3 +4,13 @@
     <button (click)="getMatchData()">Get Match Data</button>
   </label>
 </div>
+<div *ngIf = "result">
+<p></p><label> Patch: {{result.patch}} </label>
+<p></p><label> Dire Barracks Status: {{result.barracks_status_dire}} </label>
+<p></p><label> Radiant Barracks Status: {{result.barracks_status_radiant}} </label>
+<p></p><label> Game Duration: {{result.duration}} </label>
+
+<div><title>Team EXP Difference </title></div>
+<div *ngFor="let xp of result.radiant_xp_adv">
+  <p>{{xp}}</p>
+</div>
