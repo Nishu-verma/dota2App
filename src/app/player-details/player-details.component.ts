@@ -13,6 +13,7 @@ export class PlayerDetailsComponent implements OnInit {
   playerId ="138354184"
   playerResult : any;
   playerMatches : any;
+  
   constructor(private http:HttpClient,
     private route: ActivatedRoute,
     private location: Location) { }
