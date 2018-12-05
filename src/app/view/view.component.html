@@ -8,9 +8,20 @@
 <p></p><label> Patch: {{result.patch}} </label>
 <p></p><label> Dire Barracks Status: {{result.barracks_status_dire}} </label>
 <p></p><label> Radiant Barracks Status: {{result.barracks_status_radiant}} </label>
-<p></p><label> Game Duration: {{result.duration}} </label>
+<p></p><label> Game Duration: {{result.duration}}</label>
 
-<div><title>Team EXP Difference </title></div>
-<div *ngFor="let xp of result.radiant_xp_adv">
-  <p>{{xp}}</p>
+<div class ="xp"><title>Team EXP Difference </title></div>
+<p></p>Experience:
+<div *ngFor="let xp of result.radiant_xp_adv">{{xp}}
+</div>
+<div class ="gold"><title>Team Gold Difference </title></div>
+<p></p>Gold:
+<div *ngFor="let gold of result.radiant_gold_adv"><label>{{gold}}</label>
+</div>
+
+<p></p>Player:
+<div *ngFor="let iterator of result.player"><label></label>
+  <div *ngFor="let accId of iterator.account_id"><label>{{gold}}</label>
+    {{accID}}
+  </div>
 </div>

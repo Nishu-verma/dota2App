@@ -11,6 +11,7 @@ export class ViewComponent implements OnInit {
 
   matchId = "4252379739"
   result : any;
+  gameDuration : any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -22,4 +23,5 @@ export class ViewComponent implements OnInit {
         console.log(this.result)
       });
   }
+
 }
