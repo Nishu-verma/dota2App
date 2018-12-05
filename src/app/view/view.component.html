@@ -19,9 +19,7 @@
 <div *ngFor="let gold of result.radiant_gold_adv"><label>{{gold}}</label>
 </div>
 
-<p></p>Player:
-<div *ngFor="let iterator of result.player"><label></label>
-  <div *ngFor="let accId of iterator.account_id"><label>{{gold}}</label>
-    {{accID}}
-  </div>
+<p></p>Player Account ID:
+<div *ngFor="let iterator of result.players">
+  {{iterator.account_id}}
 </div>

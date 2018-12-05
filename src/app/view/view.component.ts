@@ -23,5 +23,4 @@ export class ViewComponent implements OnInit {
         console.log(this.result)
       });
   }
-
 }

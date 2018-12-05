@@ -4,32 +4,40 @@
     <button (click)="getPlayerData()">Get Player Data</button>
   </label>
 </div>
+
 <div *ngIf = "playerResult">
   <h2> {{playerResult.profile.personaname}}'s Details</h2>
-  
   <img src = "{{playerResult.profile.avatarfull}}">
-  <p>Solo MMR: {{playerResult.solo_competitive_rank}} Competitive MMR: {{playerResult.competitive_rank}} </p>
-  <p>Account link (API): {{playerResult.profile.account_id}}</p>
-  <p>Region: {{playerResult.profile.loccountrycode}}</p>
-  <p>Steam account: {{playerResult.profile.profileurl}}<a href="{{playerResult.profile.profileurl}}"></a></p>
+  <h3> Player Details: </h3>
+  <div *ngIf = "playerResult.solo_competitive_rank">
+      <p>Solo MMR: {{playerResult.solo_competitive_rank}} </p>
+  </div>
+  <div *ngIf = "playerResult.competitive_rank">
+      <p>Competitive MMR: {{playerResult.competitive_rank}} </p>
+  </div>
+
+  <p>Estimated MMR: {{playerResult.mmr_estimate.estimate}} </p>
+  <p>Account link (API): {{playerResult.profile.account_id}} </p>
+  <p>Region: {{playerResult.profile.loccountrycode}} </p>
+  <p>Steam account: {{playerResult.profile.profileurl}}
+    <a href="{{playerResult.profile.profileurl}}"></a> 
+  </p>
 
   <div *ngIf = "playerResult.profile.last_login">
     <p>Last Login: {{playerResult.profile.last_login}}</p>
   </div>
 </div>
 
-<div>
-    <title> Player Recent Matches </title>
-  </div>
-  <p>Matches:</p>
+<div *ngIf = "playerMatches">
+  <h3> Player Recent Matches </h3>
   <div *ngFor="let matches of playerMatches">
-   <label>Match:</label> 
-   {{matches.match_id}} 
-   K/D/A: {{matches.kills}}/{{matches.deaths}}/{{matches.assists}} 
-   GPM:{{matches.gold_per_min}}
-   XPM:{{matches.xp_per_min}} 
-   Hero Damage: {{matches.hero_damage}} 
-   Hero Healing: {{matches.hero_healing}} 
-   Tower Damage: {{matches.tower_damage}}
+    <label>Match:</label> 
+    {{matches.match_id}} 
+    K/D/A: {{matches.kills}}/{{matches.deaths}}/{{matches.assists}} 
+    GPM:{{matches.gold_per_min}}
+    XPM:{{matches.xp_per_min}} 
+    Hero Damage: {{matches.hero_damage}} 
+    Hero Healing: {{matches.hero_healing}} 
+    Tower Damage: {{matches.tower_damage}}
   </div>
-  
+</div>
