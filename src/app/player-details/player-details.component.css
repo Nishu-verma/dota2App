@@ -59,6 +59,11 @@ body{
     cursor: hand;
     font-family: Arial;
   }
+  .info{
+    display:inline-block;
+    border:1px solid #000;
+    padding:20px;
+  }
   
   
   button:hover {

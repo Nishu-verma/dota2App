@@ -67,6 +67,15 @@ body{
     background-color: #DDD;
     left: .1em;
   }
+  .linkless li {
+    position: relative;
+    background-color:lightblue;
+    margin: .5em;
+    height: 1.6em;
+    right:3em;
+    border-radius: 4px;
+    list-style-type: none;
+  }  
   
   button {
     background-color: #eee;
@@ -76,6 +85,11 @@ body{
     cursor: pointer;
     cursor: hand;
     font-family: Arial;
+  }
+ .info{
+    display:inline-block;
+    border:1px solid #000;
+    padding:20px;
   }
   
   
