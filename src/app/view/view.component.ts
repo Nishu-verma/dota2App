@@ -14,6 +14,7 @@ export class ViewComponent implements OnInit {
   result : any;
   radiantVictory:boolean;
   victory: string ="";
+  skill: string ="";
   
   constructor(private http:HttpClient,
     private route: ActivatedRoute,
@@ -36,17 +37,35 @@ export class ViewComponent implements OnInit {
   getMatchData(){
       this.http.get("https://api.opendota.com/api/matches/"+this.matchId).subscribe((matchData)=>{
         this.result = matchData;
-        console.log(this.result)
-        this.radiantVictory = this.result.radiant_win ; // Why is this wrong?
-        this.victoryFunction(this.radiantVictory);
+        console.log(this.result);
+        this.victoryFunction(this.result.radiant_win);
+        this.skillFunction(this.result.skill);
+        console.log(this.result.skill);
       });
   }
-  victoryFunction(a){
-    if (a == true){
+  victoryFunction(radiantVictoryBoolean){
+    if (radiantVictoryBoolean == true){
       this.victory = "Radiant Victory";
     }
     else{
       this.victory = "Dire Victory";
+    }
+  }
+  skillFunction(skillLevelInteger){
+    if (skillLevelInteger == 0){
+      this.skill = "Below Average"
+    }
+    else if (skillLevelInteger == 1){
+      this.skill = "Average"
+    }
+    else if (skillLevelInteger == 2){
+      this.skill = "Above Average skill"
+    }
+    else if (skillLevelInteger == 3){
+      this.skill = "High skill"
+    }
+    else{
+      this.skill = "???";
     }
   }
 }
