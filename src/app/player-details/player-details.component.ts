@@ -13,6 +13,10 @@ export class PlayerDetailsComponent implements OnInit {
   playerId = "138354184"
   playerResult: any;
   playerMatches: any;
+  lambdaDataSent: any;
+  lambdaDataReceived : any;
+  postInput: string = "";
+
 
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
@@ -42,4 +46,19 @@ export class PlayerDetailsComponent implements OnInit {
       console.log(this.playerMatches)
     });
   }
+  
+  postDataToLambda() {
+    this.http.post("https://megg8k849e.execute-api.us-east-1.amazonaws.com/dev/goodbye-world",this.postInput).subscribe((result) => {
+      this.lambdaDataSent= result;
+      console.log(this.lambdaDataSent);
+    });
+  }
+
+  getDataFromLambda(){
+    this.http.get("https://megg8k849e.execute-api.us-east-1.amazonaws.com/dev/hello-world").subscribe((result) => {
+      this.lambdaDataReceived = result;
+      console.log(this.lambdaDataReceived);
+    });
+  }
+
 }

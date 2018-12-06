@@ -1,17 +1,21 @@
-<div>
+<div align="center">
   <label>Player Id:
     <input [(ngModel)]="playerId" placeholder="Player Id">
     <button (click)="getPlayerData()">Get Player Data</button>
   </label>
 </div>
+
+
 <!-- <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
 <button mat-button>Click me!</button>
 <mat-checkbox>Check me!</mat-checkbox>
 -->
 <div *ngIf="playerResult">
-  <h2> {{playerResult.profile.personaname}}'s Details</h2>
-  <h3> API ID: {{playerResult.profile.account_id}} </h3>
-  <img src="{{playerResult.profile.avatarfull}}">
+  <h2 align="center"> {{playerResult.profile.personaname}}'s Details</h2>
+  <h3 align="center"> API ID: {{playerResult.profile.account_id}} </h3>
+  <div align="center">
+    <img src="{{playerResult.profile.avatarfull}}">
+  </div>
   <h3> Player Details: </h3>
   <div *ngIf="playerResult.solo_competitive_rank">
     <p>Solo MMR: {{playerResult.solo_competitive_rank}} </p>
@@ -32,7 +36,7 @@
   <h3> Player Recent Matches </h3>
   <div *ngFor="let matches of playerMatches">
     <ul class=links routerLink="/match-details/{{matches.match_id}}">
-      <li> {{matches.match_id}} </li>
+      <li> Match ID: {{matches.match_id}} </li>
     </ul>
     <ul class=info>
       <li>Hero ID: {{matches.hero_id}} </li>
@@ -42,5 +46,22 @@
       <li>Tower Damage:{{matches.tower_damage}} </li>
       <li>GPM|XPM: {{matches.gold_per_min}}|{{matches.xp_per_min}} </li>
     </ul>
+  </div>
+
+  <!--
+    <p>
+      <button (click)="getDataFromLambda()">Get Lambda Data </button>
+      <label *ngIf="lambdaDataReceived"> Recieved: {{lambdaDataReceived.message}} </label>
+    </p>
+  -->
+  <p align="center">
+    <img src="{{lambdaDataSent.output}}" *ngIf="lambdaDataSent">
+  </p>
+  <h3 align="center">
+    <label>L33T?</label>
+  </h3>
+  <div align="center">
+    <input [(ngModel)]="postInput">
+    <button (click)="postDataToLambda()">Post Lambda Data </button>
   </div>
 </div>

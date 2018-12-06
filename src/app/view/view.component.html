@@ -1,16 +1,16 @@
-<div>
+<div align="center">
   <label>Match Id:
     <input [(ngModel)]="matchId" placeholder="Match Id">
     <button (click)="getMatchData()">Get Match Data</button>
   </label>
 </div>
 <div *ngIf="result">
-  <h2>Match {{result.match_id}} details: </h2>
-  <h3>{{victory}}</h3>
+  <h2 align="center">{{victory|uppercase}}</h2>
+  <h3>Match {{result.match_id}} details: </h3>
   <ul>
     <!--<li>Patch: {{result.patch}}</li>-->
-    <li>Skill level : {{skill}}</li>
-    <li>First blood timing : {{result.first_blood_time}} </li>
+    <li>Skill level: {{skill}}</li>
+    <li>First blood timing: {{result.first_blood_time}} </li>
     <li>Dire Barracks Status: {{result.barracks_status_dire}}</li>
     <li>Radiant Barracks Status: {{result.barracks_status_radiant}}</li>
     <li>Dire Tower Status: {{result.tower_status_dire}}</li>
@@ -19,23 +19,25 @@
   </ul>
 
 
-  <div>
-    <h3>Team EXP Difference </h3>
+  <div align="center" *ngIf = "result.radiant_xp_adv">
+    <h3>Team EXP Differences</h3>
+    <ul class="exp">
+      <div *ngFor="let xp of result.radiant_xp_adv">
+        <li>{{xp}}</li>
+      </div>
+    </ul>
   </div>
-  <ul class="exp">
-    <div *ngFor="let xp of result.radiant_xp_adv">
-      <li>{{xp}}</li>
-    </div>
-  </ul>
 
-  <div>
-    <h3>Team Gold Difference </h3>
+
+  <div align="center" *ngIf = "result.radiant_gold_adv">
+    <h3>Team Gold Difference</h3>
+    <ul class="gold">
+      <div *ngFor="let gold of result.radiant_gold_adv">
+        <li>{{gold}}</li>
+      </div>
+    </ul>
   </div>
-  <ul class="gold">
-    <div *ngFor="let gold of result.radiant_gold_adv">
-      <li>{{gold}}</li>
-    </div>
-  </ul>
+
 
   <h3>Player Account ID:</h3>
   <div *ngFor="let player of result.players">
@@ -54,11 +56,11 @@
       </ul>
     </div>
     <ul class=info>
-      <li>K|D|A: {{player.hero_kills}}|{{player.deaths}}|{{player.assists}} </li>
+      <li>K|D|A: {{player.kills}}|{{player.deaths}}|{{player.assists}} </li>
       <li>Last hits|Denies: {{player.last_hits}}|{{player.denies}} </li>
       <li>Hero Damage|Hero Healing: {{player.hero_damage}}|{{player.hero_healing}}</li>
       <li>Tower Damage:{{player.tower_damage}} </li>
       <li>GPM|XPM: {{player.gold_per_min}}|{{player.xp_per_min}} </li>
-      <li>APM: {{player.actions_per_min}} </li>
+      <li *ngIf=player.actions_per_min>APM: {{player.actions_per_min}} </li>
     </ul>
   </div>
