@@ -31,10 +31,10 @@
 <div *ngIf="playerMatches">
   <h3> Player Recent Matches </h3>
   <div *ngFor="let matches of playerMatches">
-    <ul class=links  routerLink="/match-details/{{matches.match_id}}">
+    <ul class=links routerLink="/match-details/{{matches.match_id}}">
       <li> {{matches.match_id}} </li>
     </ul>
-    <ul class = info>
+    <ul class=info>
       <li>Hero ID: {{matches.hero_id}} </li>
       <li>K|D|A: {{matches.kills}}|{{matches.deaths}}|{{matches.assists}} </li>
       <li>Last hits: {{matches.last_hits}} </li>

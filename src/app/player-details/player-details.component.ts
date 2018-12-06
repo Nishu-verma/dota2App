@@ -9,35 +9,35 @@ import { Location } from '@angular/common';
   styleUrls: ['./player-details.component.css']
 })
 export class PlayerDetailsComponent implements OnInit {
-  
-  playerId ="138354184"
-  playerResult : any;
-  playerMatches : any;
-  
-  constructor(private http:HttpClient,
+
+  playerId = "138354184"
+  playerResult: any;
+  playerMatches: any;
+
+  constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private location: Location) { }
 
   ngOnInit() {
     this.getRouteId();
   }
-  getRouteId(){
+  getRouteId() {
     const routeId = +this.route.snapshot.paramMap.get('id');
     this.playerId = routeId.toString();
-    if (this.playerId =="0"){
+    if (this.playerId == "0") {
       this.playerId = "85169148";
     }
-    else{
+    else {
       this.getPlayerData();
     }
   }
 
-  getPlayerData(){
-    this.http.get("https://api.opendota.com/api/players/"+this.playerId).subscribe((result)=>{
+  getPlayerData() {
+    this.http.get("https://api.opendota.com/api/players/" + this.playerId).subscribe((result) => {
       this.playerResult = result;
       console.log(this.playerResult)
     });
-    this.http.get("https://api.opendota.com/api/players/"+this.playerId+"/recentMatches").subscribe((pMatches)=>{
+    this.http.get("https://api.opendota.com/api/players/" + this.playerId + "/recentMatches").subscribe((pMatches) => {
       this.playerMatches = pMatches;
       console.log(this.playerMatches)
     });
