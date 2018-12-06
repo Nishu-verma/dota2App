@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,6 +24,10 @@ import { PlayerDetailsComponent } from './player-details/player-details.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    MatProgressBarModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
     HttpClientModule
   ],
   providers: [],

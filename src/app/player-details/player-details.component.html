@@ -4,7 +4,10 @@
     <button (click)="getPlayerData()">Get Player Data</button>
   </label>
 </div>
-
+<!-- <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+<button mat-button>Click me!</button>
+<mat-checkbox>Check me!</mat-checkbox>
+-->
 <div *ngIf="playerResult">
   <h2> {{playerResult.profile.personaname}}'s Details</h2>
   <h3> API ID: {{playerResult.profile.account_id}} </h3>

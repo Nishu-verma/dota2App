@@ -11,12 +11,12 @@ import { Location } from '@angular/common';
 export class ViewComponent implements OnInit {
 
   matchId = "4252379739"
-  result : any;
-  radiantVictory:boolean;
-  victory: string ="";
-  skill: string ="";
-  
-  constructor(private http:HttpClient,
+  result: any;
+  radiantVictory: boolean;
+  victory: string = "";
+  skill: string = "";
+
+  constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private location: Location) { }
 
@@ -24,47 +24,47 @@ export class ViewComponent implements OnInit {
     this.getRouteId();
   }
 
-  getRouteId(){
+  getRouteId() {
     const routeId = +this.route.snapshot.paramMap.get('id');
     this.matchId = routeId.toString();
-    if (this.matchId =="0"){
+    if (this.matchId == "0") {
       this.matchId = "4252379739";
     }
-    else{
+    else {
       this.getMatchData();
     }
   }
-  getMatchData(){
-      this.http.get("https://api.opendota.com/api/matches/"+this.matchId).subscribe((matchData)=>{
-        this.result = matchData;
-        console.log(this.result);
-        this.victoryFunction(this.result.radiant_win);
-        this.skillFunction(this.result.skill);
-        console.log(this.result.skill);
-      });
+  getMatchData() {
+    this.http.get("https://api.opendota.com/api/matches/" + this.matchId).subscribe((matchData) => {
+      this.result = matchData;
+      console.log(this.result);
+      this.victoryFunction(this.result.radiant_win);
+      this.skillFunction(this.result.skill);
+      console.log(this.result.skill);
+    });
   }
-  victoryFunction(radiantVictoryBoolean){
-    if (radiantVictoryBoolean == true){
+  victoryFunction(radiantVictoryBoolean) {
+    if (radiantVictoryBoolean == true) {
       this.victory = "Radiant Victory";
     }
-    else{
+    else {
       this.victory = "Dire Victory";
     }
   }
-  skillFunction(skillLevelInteger){
-    if (skillLevelInteger == 0){
+  skillFunction(skillLevelInteger) {
+    if (skillLevelInteger == 0) {
       this.skill = "Below Average"
     }
-    else if (skillLevelInteger == 1){
+    else if (skillLevelInteger == 1) {
       this.skill = "Average"
     }
-    else if (skillLevelInteger == 2){
+    else if (skillLevelInteger == 2) {
       this.skill = "Above Average skill"
     }
-    else if (skillLevelInteger == 3){
+    else if (skillLevelInteger == 3) {
       this.skill = "High skill"
     }
-    else{
+    else {
       this.skill = "???";
     }
   }
