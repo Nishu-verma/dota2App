@@ -37,17 +37,16 @@ body{
     position: relative;
     background-color:lightgoldenrodyellow;
     margin: .5em;
-    height: 1.6em;
-    right:3em;
     border-radius: 4px;
+    right:1.5em; 
     list-style-type: none;
   }
 .exp li {
     position: relative;
     background-color:lightsalmon;
     margin: .5em;
-    right:3em;
     border-radius: 4px;
+    right:1.5em; 
     list-style-type: none;
   }
 
@@ -95,3 +94,21 @@ body{
   button:hover {
     background-color: #cfd8dc;
   }
+  .alignleft {
+    float: left;
+  }
+  .alignright {
+    float: right;
+  }
+
+  /* ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #1E457C;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+} */

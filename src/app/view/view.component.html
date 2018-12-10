@@ -4,23 +4,44 @@
     <button (click)="getMatchData()">Get Match Data</button>
   </label>
 </div>
+{{value}}
+
+
+
 <div *ngIf="result">
   <h2 align="center">{{victory|uppercase}}</h2>
   <h3>Match {{result.match_id}} details: </h3>
   <ul>
     <!--<li>Patch: {{result.patch}}</li>-->
-    <li>Skill level: {{skill}}</li>
-    <li>First blood timing: {{result.first_blood_time}} </li>
-    <li>Dire Barracks Status: {{result.barracks_status_dire}}</li>
-    <li>Radiant Barracks Status: {{result.barracks_status_radiant}}</li>
-    <li>Dire Tower Status: {{result.tower_status_dire}}</li>
-    <li>Radiant Tower Status: {{result.tower_status_radiant}}</li>
+    <li>Skill Level: {{skill}}</li>
+    <li>First Blood Time: {{result.first_blood_time}} </li>
     <li>Game Duration: {{result.duration}}</li>
   </ul>
 
 
-  <div align="center" *ngIf = "result.radiant_xp_adv">
-    <h3>Team EXP Differences</h3>
+  <h4> Barracks Status</h4>
+  <div id="textbox">
+    <p class="alignleft">Radiant: {{result.barracks_status_radiant}}</p>
+    <p class="alignright">Dire: {{result.barracks_status_dire}}</p>
+  </div>
+  <div style="clear: both;"></div>
+
+  <mat-progress-bar class="example-margin" [color]="colorBar1" [mode]="modeBar1" [value]="valueBar1">
+  </mat-progress-bar>
+
+  <h4> Tower Status</h4>
+  <div id="textbox">
+    <p class="alignleft">Radiant: {{result.tower_status_radiant}}</p>
+    <p class="alignright">Dire: {{result.tower_status_dire}}</p>
+  </div>
+  <div style="clear: both;"></div>
+
+
+  <mat-progress-bar class="example-margin" [color]="colorBar2" [mode]="modeBar2" [value]="valueBar2">
+  </mat-progress-bar>
+
+  <div align="center" *ngIf="result.radiant_xp_adv">
+    <h4>Team Experience Differences</h4>
     <ul class="exp">
       <div *ngFor="let xp of result.radiant_xp_adv">
         <li>{{xp}}</li>
@@ -29,8 +50,8 @@
   </div>
 
 
-  <div align="center" *ngIf = "result.radiant_gold_adv">
-    <h3>Team Gold Difference</h3>
+  <div align="center" *ngIf="result.radiant_gold_adv">
+    <h4>Team Gold Difference</h4>
     <ul class="gold">
       <div *ngFor="let gold of result.radiant_gold_adv">
         <li>{{gold}}</li>
@@ -56,6 +77,7 @@
       </ul>
     </div>
     <ul class=info>
+      <li>Player Level: {{player.level}}</li>
       <li>K|D|A: {{player.kills}}|{{player.deaths}}|{{player.assists}} </li>
       <li>Last hits|Denies: {{player.last_hits}}|{{player.denies}} </li>
       <li>Hero Damage|Hero Healing: {{player.hero_damage}}|{{player.hero_healing}}</li>

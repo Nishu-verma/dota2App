@@ -32,13 +32,13 @@
   </div>
 </div>
 
-<div *ngIf="playerMatches">
-  <h3> Player Recent Matches </h3>
+<div *ngIf="playerMatches" align = "center">
+  <h3 align="center"> Player Recent Matches </h3>
   <div *ngFor="let matches of playerMatches">
-    <ul class=links routerLink="/match-details/{{matches.match_id}}">
+    <ul align = center  class=links routerLink="/match-details/{{matches.match_id}}">
       <li> Match ID: {{matches.match_id}} </li>
     </ul>
-    <ul class=info>
+    <ul class=info  align = "left">
       <li>Hero ID: {{matches.hero_id}} </li>
       <li>K|D|A: {{matches.kills}}|{{matches.deaths}}|{{matches.assists}} </li>
       <li>Last hits: {{matches.last_hits}} </li>

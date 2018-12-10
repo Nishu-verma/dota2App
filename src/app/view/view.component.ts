@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-view',
@@ -15,6 +16,14 @@ export class ViewComponent implements OnInit {
   radiantVictory: boolean;
   victory: string = "";
   skill: string = "";
+
+  colorBar1 = 'warn';
+  modeBar1 = 'determinate';
+  valueBar1 = 50;
+
+  colorBar2 = 'primary';
+  modeBar2 = 'determinate';
+  valueBar2 = 50;
 
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
@@ -41,7 +50,9 @@ export class ViewComponent implements OnInit {
       console.log(this.result);
       this.victoryFunction(this.result.radiant_win);
       this.skillFunction(this.result.skill);
-      console.log(this.result.skill);
+      // console.log(this.result.skill);
+      this.ratioFunctionBar1(this.result.barracks_status_radiant,this.result.barracks_status_dire);
+      this.ratioFunctionBar2(this.result.tower_status_radiant,this.result.tower_status_dire);
     });
   }
   victoryFunction(radiantVictoryBoolean) {
@@ -69,4 +80,13 @@ export class ViewComponent implements OnInit {
       this.skill = "???";
     }
   }
+  
+  ratioFunctionBar1(radiant,dire){
+    this.valueBar1 = 100*(parseInt(radiant)/(parseInt(radiant) + parseInt(dire)));
+  }
+  
+  ratioFunctionBar2(radiant,dire){
+    this.valueBar2 = 100*(parseInt(radiant)/(parseInt(radiant) + parseInt(dire)));
+  }
+
 }
