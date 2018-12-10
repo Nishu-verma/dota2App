@@ -35,6 +35,7 @@ export class ViewComponent implements OnInit {
     }
   }
   getMatchData() {
+    this.location.go("/match-details/"+this.matchId);
     this.http.get("https://api.opendota.com/api/matches/" + this.matchId).subscribe((matchData) => {
       this.result = matchData;
       console.log(this.result);

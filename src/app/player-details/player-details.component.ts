@@ -37,6 +37,7 @@ export class PlayerDetailsComponent implements OnInit {
   }
 
   getPlayerData() {
+    this.location.go("/player-details/"+this.playerId);
     this.http.get("https://api.opendota.com/api/players/" + this.playerId).subscribe((result) => {
       this.playerResult = result;
       console.log(this.playerResult)
