@@ -10,6 +10,7 @@ import { PlayerDetailsComponent } from './player-details/player-details.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { HeroPickerComponent } from './hero-picker/hero-picker.component';
 
 
 
@@ -18,7 +19,8 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
   declarations: [
     AppComponent,
     ViewComponent,
-    PlayerDetailsComponent
+    PlayerDetailsComponent,
+    HeroPickerComponent
   ],
   imports: [
     BrowserModule,
