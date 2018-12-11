@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Location, KeyValue } from '@angular/common';
-import { copyFile } from 'fs';
 
 
 @Component({
