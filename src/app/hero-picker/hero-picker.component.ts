@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Location, KeyValue } from '@angular/common';
+// import * as AWS from 'aws-sdk'
 
 
 @Component({
@@ -73,7 +74,7 @@ export class HeroPickerComponent implements OnInit {
     });
     heromatchupData.forEach(element => {
       var score = 0;
-      score = 100/5 - (100 * parseInt(element.wins) / parseInt(element.games_played) / 5);
+      score = 100 / 5 - (100 * parseInt(element.wins) / parseInt(element.games_played) / 5);
       var name = "";
       heroDataStored.forEach(hero => {
         if (parseInt(hero.id) == parseInt(element.hero_id)) {
@@ -94,6 +95,27 @@ export class HeroPickerComponent implements OnInit {
     }
     );
   }
+  // postLexText() {
+  //   var lexruntime = new AWS.LexRuntime();
+  //   var params = {
+  //     botAlias: '\$LATEST', /* required */
+  //     botName: 'OrderFlowersBot', /* required */
+  //     inputText: 'Testing', /* required */
+  //     userId: 'User', /* required */
+  //     // requestAttributes: {
+  //     //   '<String>': 'STRING_VALUE',
+  //     //   /* '<String>': ... */
+  //     // },
+  //     // sessionAttributes: {
+  //     //   '<String>': 'STRING_VALUE',
+  //     //   /* '<String>': ... */
+  //     // }
+  //   };
+  //   lexruntime.postText(params, function(err, data) {
+  //     if (err) console.log(err, err.stack); // an error occurred
+  //     else     console.log(data);           // successful response
+  //   });
+  // }
   // descOrder = (a, b) => {
   //   if(a.value < b.value) return b.value;
   // }
