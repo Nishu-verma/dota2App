@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { HeroPickerComponent } from './hero-picker/hero-picker.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 
@@ -20,7 +21,8 @@ import { HeroPickerComponent } from './hero-picker/hero-picker.component';
     AppComponent,
     ViewComponent,
     PlayerDetailsComponent,
-    HeroPickerComponent
+    HeroPickerComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,

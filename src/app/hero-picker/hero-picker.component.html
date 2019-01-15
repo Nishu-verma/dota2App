@@ -1,13 +1,4 @@
-<h1>Angular Bot</h1>
-<ng-container *ngFor="let message of messages">
-  <div>
-    {{message.sender}}: {{message.content}}
-  </div>
-</ng-container>
-<input [(ngModel)]="userInput">
-<button title="Post Lex Text Button" (click)="postLexText()"> Post Text </button>
-
-<!-- <div *ngIf="heroData" class="alignleft">
+<div *ngIf="heroData" class="alignleft">
   <h4>HeroData</h4>
   <ul>
     <div *ngFor="let hero of heroData">
@@ -46,4 +37,4 @@
 <div align="center">
 
 </div>
-<div style="clear: both;"></div> -->
+<div style="clear: both;"></div>
