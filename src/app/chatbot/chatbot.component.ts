@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LexRuntime}  from 'aws-sdk';
 import {Message} from '../messages';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-chatbot',
@@ -37,8 +38,8 @@ export class ChatbotComponent implements OnInit {
     };
 
     this.lex = new LexRuntime({
-      accessKeyId: "AKIAJ43PBK7346OYWSCQ",
-      secretAccessKey: "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",
+      accessKeyId: environment.normalKey,
+      secretAccessKey: environment.secretKey,
       region: "us-east-1"
     }
     );
