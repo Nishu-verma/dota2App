@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  normalKey: "AKIAJ43PBK7346OYWSCQ",
-  secretKey: "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",
+  normalKey: "AKIAJJ2KGHR4GPH56KFA",
+  secretKey: "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",
 };
 
 /*
