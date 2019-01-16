@@ -23,8 +23,8 @@ export class ChatbotComponent implements OnInit {
 
   postLexText() {
     var params = {
-      botAlias: '\$LATEST', /* required */
-      botName: 'OrderFlowersBot', /* required */
+      botAlias: 'versionTwo', /* required */
+      botName: 'dotaChatBot', /* required */
       inputText: 'Testing', /* required */
       userId: 'User', /* required */
       // requestAttributes: {
